@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args){
+        // find the prime factor
+        Scanner sc = new Scanner (System.in);
+        int num = sc.nextInt();
+        int position = sc.nextInt();
+        ArrayList <Integer> al = new ArrayList<>();
+
+        for(int i = 2; i*i <= num; i++){
+            while(num %i == 0){
+                num = num/i;
+                al.add(i);
+            }
+        }
+        if (num != 1) al.add(num);
+        System.out.println(al);
+        int len = al.size();
+        if (len < position) System.out.print(-1);
+        else System.out.print(al.get(position-1));
+    }
+}
